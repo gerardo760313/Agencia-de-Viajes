@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Agencia-de-Viajes", "http://localhost:4429", "{DAC00532-A00E-48AD-BAFF-D359F0846BEE}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_4429"
+		Debug.AspNetCompiler.PhysicalPath = "Agencia-de-Viajes\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4429\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_4429"
+		Release.AspNetCompiler.PhysicalPath = "Agencia-de-Viajes\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4429\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Agencia-de-Viajes\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.UI", "1.UI", "{6722272D-972F-48EB-9103-3AB75A12DE3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Business", "2.Business", "{5B32C43F-1D5C-4BB4-8E53-FD4AAF7400BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Data", "3.Data", "{E8BA5D77-B86B-45D7-AE26-57EF1BA6982B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusViajes", "BusViajes\BusViajes.csproj", "{4C340179-2861-4829-99E1-CEDEAFF97CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntViajes", "EntViajes\EntViajes.csproj", "{18A6193D-C4FF-4830-A497-849F0101458B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatViajes", "DatViajes\DatViajes.csproj", "{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAC00532-A00E-48AD-BAFF-D359F0846BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC00532-A00E-48AD-BAFF-D359F0846BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC00532-A00E-48AD-BAFF-D359F0846BEE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC00532-A00E-48AD-BAFF-D359F0846BEE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4C340179-2861-4829-99E1-CEDEAFF97CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C340179-2861-4829-99E1-CEDEAFF97CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C340179-2861-4829-99E1-CEDEAFF97CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C340179-2861-4829-99E1-CEDEAFF97CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A6193D-C4FF-4830-A497-849F0101458B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A6193D-C4FF-4830-A497-849F0101458B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A6193D-C4FF-4830-A497-849F0101458B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A6193D-C4FF-4830-A497-849F0101458B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DAC00532-A00E-48AD-BAFF-D359F0846BEE} = {6722272D-972F-48EB-9103-3AB75A12DE3A}
+		{4C340179-2861-4829-99E1-CEDEAFF97CD7} = {5B32C43F-1D5C-4BB4-8E53-FD4AAF7400BD}
+		{18A6193D-C4FF-4830-A497-849F0101458B} = {5B32C43F-1D5C-4BB4-8E53-FD4AAF7400BD}
+		{9E5E12F7-560D-42B4-8CB0-6A593BFFB665} = {E8BA5D77-B86B-45D7-AE26-57EF1BA6982B}
+	EndGlobalSection
+EndGlobal
