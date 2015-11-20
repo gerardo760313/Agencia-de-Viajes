@@ -19,7 +19,7 @@ namespace Agencia.Viajes.Business.Entity
         public string video { get; set; }
         public string fotoLugar { get; set; }
         public string fotoHotel { get; set; }
-        public decimal costo { get; set; }
+        public double costo { get; set; }
 
         private EntCategoria categoria;
         public  EntCategoria Categoria

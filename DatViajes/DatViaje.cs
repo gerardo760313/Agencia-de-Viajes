@@ -18,19 +18,25 @@ namespace Agencia.Viajes.Data
         }
         public DataTable Obtener() 
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE, VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST FROM VIAJE INNER JOIN DESTINO On DEST_ID = VIAJ_DEST_ID INNER JOIN CATEGORIA On CATE_ID = VIAJ_CATE_ID", con);
+            SqlCommand com = new SqlCommand("spObtenerPeliculas", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter());
+            SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
         public DataTable Obtener(int id) 
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE, VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST FROM VIAJE INNER JOIN DESTINO On DEST_ID = VIAJ_DEST_ID INNER JOIN CATEGORIA On CATE_ID = VIAJ_CATE_ID WHERE VIAJ_ID = " + id, con);
+            SqlCommand com = new SqlCommand("spObtenerViaje", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = id });
+            SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
-        public int Insertar(string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, decimal costo) 
+        public int Insertar(string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, double costo) 
         {
             SqlCommand com = new SqlCommand(string.Format("INSERT INTO VIAJE(VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE ,VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST) VALUES ((SELECT ISNULL(MAX(VIAJ_ID) +1, 1) FROM VIAJE), {0},'{1}','{2}', {3}, {4}, '{5}','{6}','{7}','{8}', '{9}','{10}',{11})",nombre, fechaLlegada, categoria, destino, fechaAlta, estatus, descripcion, video, fotoLugar, fotoHotel, costo), con);
             try
@@ -48,7 +54,7 @@ namespace Agencia.Viajes.Data
  
             
         }
-        public int Actualizar(int id, string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, decimal costo) 
+        public int Actualizar(int id, string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, double costo) 
         {
             try
             {
@@ -110,9 +116,12 @@ namespace Agencia.Viajes.Data
                 throw new ApplicationException(ex.Message);
             }
         }
-        public DataTable spObtenerViaje() 
+        public DataTable spObtenerViaje(string nombre, int categoriaid, int destinoId, DateTime fechaLlegada) 
         {
-        
+            SqlDataAdapter da = new SqlDataAdapter("", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
         }
         
 

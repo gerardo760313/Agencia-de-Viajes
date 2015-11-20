@@ -32,7 +32,7 @@ namespace Agencia.Viajes.Business
                    ent.video  = dr["VIAJ_VIDE"].ToString();
                    ent.fotoLugar  = dr["VIAJ_FOTO_LUG"].ToString();
                    ent.fotoHotel  = dr["VIAJ_FOTO_HOTE"].ToString();
-                   ent.costo  = Convert.ToDecimal(dr["VIAJ_DESC"]);
+                   ent.costo  = Convert.ToDouble(dr["VIAJ_DESC"]);
                    lst.Add(ent);                   
                }
                return lst;
@@ -62,7 +62,7 @@ namespace Agencia.Viajes.Business
                ent.video = dt.Rows[0]["VIAJ_VIDE"].ToString();
                ent.fotoLugar = dt.Rows[0]["VIAJ_FOTO_LUG"].ToString();
                ent.fotoHotel = dt.Rows[0]["VIAJ_FOTO_HOTE"].ToString();
-               ent.costo = Convert.ToDecimal(dt.Rows[0]["VIAJ_DESC"]);
+               ent.costo = Convert.ToDouble(dt.Rows[0]["VIAJ_DESC"]);
                return ent;
            }
            catch (Exception ex)
@@ -87,7 +87,7 @@ namespace Agencia.Viajes.Business
                if (filas != 1)
                    throw new ApplicationException("Error al actualizar");
                {
-               
+                
                }
            }
            catch (Exception ex)
@@ -96,7 +96,21 @@ namespace Agencia.Viajes.Business
                throw new ApplicationException(ex.Message);
            }
        }
-       
+       public List<EntViaje> spObtener(EntViaje ent) 
+       {
+           DataTable dt = new DatViaje().Obtener(ent.nombre, ent.fechaLlegada.ToString("MM/dd/yyyy"), ent.categoriaId, ent.destinoId, ent.fechaAlta.ToString("MM/dd/yyyy"), ent.estatus, ent.descripcion, ent.video, ent.fotoLugar, ent.fotoHotel, ent.costo);
+           
+           DataTable dt = new DatViaje().spObtenerViaje();
+           List<EntViaje> lst = new List<EntViaje>();
+           foreach (DataRow dr in dt.Rows) 
+           {
+               EntViaje ent = new EntViaje();
+               ent.id = Convert.ToInt32(dr["VIAJ_ID"]);
+
+           }
+
+
+       }
 
        }
 
