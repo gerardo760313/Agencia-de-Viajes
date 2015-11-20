@@ -118,7 +118,13 @@ namespace Agencia.Viajes.Data
         }
         public DataTable spObtenerViaje(string nombre, int categoriaid, int destinoId, DateTime fechaLlegada) 
         {
-            SqlDataAdapter da = new SqlDataAdapter("", con);
+            SqlCommand com = new SqlCommand("spObtenerViajeCompleto", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter() {SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre});
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoriaid });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destinoId });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaLlegada", Value = fechaLlegada });
+            SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
