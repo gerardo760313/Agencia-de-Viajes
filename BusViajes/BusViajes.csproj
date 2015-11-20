@@ -39,7 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusCatalogo.cs" />
+    <Compile Include="BusViaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatViajes\DatViajes.csproj">
+      <Project>{9e5e12f7-560d-42b4-8cb0-6a593bffb665}</Project>
+      <Name>DatViajes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntViajes\EntViajes.csproj">
+      <Project>{18a6193d-c4ff-4830-a497-849f0101458b}</Project>
+      <Name>EntViajes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

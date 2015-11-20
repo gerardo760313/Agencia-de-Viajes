@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntViajes
+namespace Agencia.Viajes.Business
 {
-    public class Class1
+    class BusCatalogo
     {
     }
 }

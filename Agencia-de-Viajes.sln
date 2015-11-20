@@ -7,6 +7,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Agencia-de-Viajes", "http:/
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{4c340179-2861-4829-99e1-cedeaff97cd7}|BusViajes.dll;{9E5E12F7-560D-42B4-8CB0-6A593BFFB665}|DatViajes.dll;{18A6193D-C4FF-4830-A497-849F0101458B}|EntViajes.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_4429"
 		Debug.AspNetCompiler.PhysicalPath = "Agencia-de-Viajes\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4429\"
