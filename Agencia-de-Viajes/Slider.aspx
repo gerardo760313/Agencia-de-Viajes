@@ -22,7 +22,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox" >
                 <div class="item active" >
-                    <img src="img/Acapulco.jpg" alt="Chania" style="margin:auto; text-align:center;"/>
+                    <img src="img/Acapulco.jpg" alt="Acapulco" style="margin:auto; text-align:center;"/>
                     <div class="carousel-caption">
                         <h3>Acapulco</h3>
                         <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="img/Cancun.jpg" alt="Chania" style="margin:auto; text-align:center;"/>
+                    <img src="img/Cancun.jpg" alt="Cancún" style="margin:auto; text-align:center;"/>
                     <div class="carousel-caption">
                         <h3>Cancún</h3>
                         <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="img/LosCabos.jpg" alt="Flower"/>
+                    <img src="img/LosCabos.jpg" alt="Los Cabos" style="margin:auto; text-align:center;"/>
                     <div class="carousel-caption">
                         <h3>Los Cabos</h3>
                         <p>Beatiful flowers in Kolymbari, Crete.</p>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="img/PuertoVallarta.jpg" alt="Flower"style="margin:auto; text-align:center;"/>
+                    <img src="img/PuertoVallarta.jpg" alt="Puerrto Vallarta" style="margin:auto; text-align:center;"/>
                     <div class="carousel-caption">
                         <h3>Puerto Vallarta</h3>
                         <p>Beatiful flowers in Kolymbari, Crete.</p>
