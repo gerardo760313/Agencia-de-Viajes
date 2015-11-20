@@ -12,11 +12,12 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="row">
-                <div class="col-md-12; text-right ">
+                <div class="col-xs-12; text-right">
                     <a href="#">Registro</a>
                     <a href="#">Login</a>
                 </div>
                 <div class="col-md-1"></div>
+
                 <div class="col-md-10">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#home">Nacionales</a></li>
@@ -26,14 +27,14 @@
                     <div class="tab-content">
                         <div id="home" class="tab-pane fade in active">
                             <h3>Nacionales</h3>
-                            <p>Some content.</p>
+                            <p>Some content in menu 1.</p>
                         </div>
+
                         <div id="menu1" class="tab-pane fade">
                             <h3>Internacionales</h3>
                             <p>Some content in menu 1.</p>
                         </div>
                     </div>
-
                     &nbsp;
                     <div class="well">
                         <div>
@@ -54,69 +55,67 @@
                             </div>
                             <br />
                             <br />
-                            <div class="row; text-center">
+                            <div class="row text-center">
                                 <div class="col-sm-4">
                                     <asp:TextBox runat="server" ID="TextBox1" ToolTip="Buscar por fecha" placeholder="Fecha1" />
                                 </div>
                                 <div class="col-sm-4">
                                     <asp:Button Text="Buscar" runat="server" ID="btnBuscar" />
                                 </div>
-                                <div class="col-sm-4">
-                                </div>
+                                <div class="col-sm-4"></div>
                             </div>
                             &nbsp;
                         </div>
-
                     </div>
-
                     &nbsp;
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="height: 120px">
-                                <img src="img/avatarportada.png" alt="Destino turistico" id="imgLugar" class="img-responsive" style="margin: auto" />
-                            </div>
-
-                            <div class=" panel-body" style="height: 400px;">
-                                <div class="row">
-                                    <div class="col-xs-4" style="height: 100px">
-                                        <img src="img/avatarmin.png" alt="Hotel" id="imgHotel" class="img-responsive" style="margin: auto" />
-                                    </div>
-
-                                    <div class="col-xs-8">
-                                        <span>Fecha: </span>
-                                        <label>19/11/2015</label>
-                                        <span>Categoria: </span>
-                                        <label>5 estrellas</label>
-                                        <span>Destino: </span>
-                                        <label>Cancún</label>
-                                        <br />
-                                        <input type="checkbox" id="chkEstatus" checked="checked" disabled="disabled" />
-                                    </div>
-
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="height: 150px">
+                                    <img src="img/Acapulco.jpg" alt="Destino turistico" id="imgLugar" class="img-responsive" style="margin: auto; height: 120px" />
                                 </div>
 
-                                <div id="descripcion" style="text-align: center; margin: 5px auto;">
-                                    <textarea id="txtDescr" class="form-control" cols="43" rows="4" style="text-align: justify; background-color: White;" disabled="disabled">Este centro turitico cuenta con ....
+                                <div class=" panel-body" style="height: 400px;">
+                                    <div class="row">
+                                        <div class="col-xs-4" style="height: 100px">
+                                            <img src="img/CopacabanaAcapulco.jpg" alt="Hotel" id="imgHotel" class="img-responsive" style="margin: auto; height: 100px" />
+                                        </div>
+
+                                        <div class="col-xs-8">
+                                            <span>Fecha: </span>
+                                            <label>19/11/2015</label>
+                                            <span>Categoria: </span>
+                                            <label>5 estrellas</label>
+                                            <span>Destino: </span>
+                                            <label>Acapulco</label>
+                                            <br />
+                                            <input type="checkbox" id="chkEstatus" checked="checked" disabled="disabled" />
+                                        </div>
+
+                                    </div>
+
+                                    <div id="descripcion" style="text-align: center; margin: 5px auto;">
+                                        <textarea id="txtDescr" class="form-control" cols="43" rows="4" style="text-align: justify; background-color: White;" disabled="disabled">Este centro turitico cuenta con ....
                                 </textarea>
+                                    </div>
+
+
+                                    <div id="video" class="text-center" style="text-align: center; margin: 5px auto;">
+                                        <iframe src="video/DestinosGuerrero.mp4" frameborder="0" allowfullscreen controls></iframe>
+
+                                    </div>
                                 </div>
 
-
-                                <div id="video" class="text-center" style="text-align: center; margin: 5px auto;">
-                                    <iframe src="video/HOTEL_TRANSYLVANIA_2.mp4 " frameborder="0" allowfullscreen controls ></iframe>
-
+                                <div class="panel-footer" style="height: 50px; text-align: center;">
+                                    <asp:LinkButton Text="Reservar" runat="server" ID="lkbReservar" />
                                 </div>
-                            </div>
 
-                            <div class="panel-footer" style="height: 50px; text-align: center;">
-                                <asp:LinkButton Text="Reservar" runat="server" ID="lkbReservar" />
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-                <div class="col-md-1"></div>
 
+                <div class="col-md-1"></div>
             </div>
         </div>
     </form>
