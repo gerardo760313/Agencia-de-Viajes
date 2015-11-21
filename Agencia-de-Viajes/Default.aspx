@@ -146,7 +146,7 @@
                         <div>
                             <div class="row; text-center">
                                 <div class="col-sm-4">
-                                    <asp:TextBox runat="server" ID="txt" ToolTip="Buscar por fecha" placeholder="Fecha" />
+                                    <asp:TextBox runat="server" ID="txtFecha" ToolTip="Buscar por fecha" placeholder="Fecha" />
                                 </div>
                                 <div class="col-sm-4">
                                     <asp:DropDownList runat="server" ID="ddlCategoria" ToolTip="Selecciona una categoria" AppendDataBoundItems="true">
@@ -163,7 +163,7 @@
                             <br />
                             <div class="row text-center">
                                 <div class="col-sm-4">
-                                    <asp:TextBox runat="server" ID="TextBox1" ToolTip="Buscar por fecha" placeholder="Fecha1" />
+                                    <asp:TextBox runat="server" ID="txt" ToolTip="Buscar por fecha" placeholder="Fecha1" />
                                 </div>
                                 <div class="col-sm-4">
                                     <asp:Button Text="Buscar" runat="server" ID="btnBuscar" />
@@ -206,7 +206,7 @@
                                     </div>
 
 
-                                    <div id="video" class="text-center" style="text-align: center; margin: 5px auto;">
+                                    <div id="video" style="text-align: center; margin: 5px auto;">
                                         <iframe src="video/DestinosGuerrero.mp4" frameborder="0" allowfullscreen controls></iframe>
 
                                     </div>
