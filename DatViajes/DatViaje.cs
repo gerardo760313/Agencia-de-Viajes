@@ -36,9 +36,21 @@ namespace Agencia.Viajes.Data
             da.Fill(dt);
             return dt;
         }
-        public int Insertar(string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, double costo) 
+        public int spInsertar(string nombre, string fechaLlegada, int categoria, int destino, string fechaAlta, bool estatus, string descripcion, string video, string fotoLugar, string fotoHotel, double costo) 
         {
-            SqlCommand com = new SqlCommand(string.Format("INSERT INTO VIAJE(VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE ,VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST) VALUES ((SELECT ISNULL(MAX(VIAJ_ID) +1, 1) FROM VIAJE), {0},'{1}','{2}', {3}, {4}, '{5}','{6}','{7}','{8}', '{9}','{10}',{11})",nombre, fechaLlegada, categoria, destino, fechaAlta, estatus, descripcion, video, fotoLugar, fotoHotel, costo), con);
+            SqlCommand com = new SqlCommand("spInsertar", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@fechaLlegada", Value = fechaLlegada });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoria });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destino });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaAlta", Value = fechaAlta });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Bit, ParameterName = "@Estatus", Value = estatus });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Descripcion", Value = descripcion });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Video", Value = video});
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@FotoLugar", Value = fotoLugar });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@FotoHotel", Value = fotoHotel });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Decimal, ParameterName = "@Costo", Value = costo });
             try
             {
                 con.Open();
@@ -58,7 +70,21 @@ namespace Agencia.Viajes.Data
         {
             try
             {
-                SqlCommand com = new SqlCommand("UPDATE VIAJE SET VIAJ_NOMB = '{0}', VIAJ_FECH_LLEG = '{1}',VIAJ_CATE_ID = {2}, VIAJ_DEST_ID = {3}, VIAJ_FECH_ALTA = '{4}', VIAJ_ESTA = '{5}',VIAJ_DESC = '{6}', VIAJ_VIDE = '{7}', VIAJ_FOTO_LUG = '{8}', VIAJ_FOTO_HOTE = '{9}', VIAJ_COST = {10} WHERE VIAJ_ID = {11}", con);
+                SqlCommand com = new SqlCommand("spActualizar", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@id", Value = id });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@fechaLlegada", Value = fechaLlegada });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoria });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destino });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaAlta", Value = fechaAlta });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Bit, ParameterName = "@Estatus", Value = estatus });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Descripcion", Value = descripcion });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Video", Value = video });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@FotoLugar", Value = fotoLugar });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@FotoHotel", Value = fotoHotel });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Decimal, ParameterName = "@Costo", Value = costo });
+
                 con.Open();
                 int filas = com.ExecuteNonQuery();
                 con.Close();
@@ -74,7 +100,10 @@ namespace Agencia.Viajes.Data
         {
             try
             {
-                SqlCommand com = new SqlCommand("Delete FROM VIAJE WHERE PELI_ID = " + id, con);
+                SqlCommand com = new SqlCommand("spBorrar" + id, con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = id });
+                
                 con.Open();
                 int filas = com.ExecuteNonQuery();
                 con.Close();

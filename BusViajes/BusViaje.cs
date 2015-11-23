@@ -75,7 +75,7 @@ namespace Agencia.Viajes.Business
        }
        public void Insertar(EntViaje ent) 
        {
-           int filas = new DatViaje().Insertar(ent.nombre, ent.fechaLlegada.ToString("MM/dd/yyyy"), ent.categoriaId, ent.destinoId, ent.fechaAlta.ToString("MM/dd/yyyy"), ent.estatus, ent.descripcion, ent.video, ent.fotoLugar, ent.fotoHotel, ent.costo);
+           int filas = new DatViaje().spInsertar(ent.nombre, ent.fechaLlegada.ToString("MM/dd/yyyy"), ent.categoriaId, ent.destinoId, ent.fechaAlta.ToString("MM/dd/yyyy"), ent.estatus, ent.descripcion, ent.video, ent.fotoLugar, ent.fotoHotel, ent.costo);
            if (filas != 1)
                throw new ApplicationException("Error al insertar");
        }
