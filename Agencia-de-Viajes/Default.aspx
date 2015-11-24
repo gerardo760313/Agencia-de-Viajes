@@ -30,45 +30,12 @@
                             <div id="carNacinales" class="carousel slide" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
-                                    <li data-target="#carNacinales" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carNacinales" data-slide-to="1"></li>
-                                    <li data-target="#carNacinales" data-slide-to="2"></li>
-                                    <li data-target="#carNacinales" data-slide-to="3"></li>
+                                    <asp:PlaceHolder runat="server" ID="phCarrCabNac" />                                      
                                 </ol>
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <img src="img/Acapulco.jpg" alt="Acapulco" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Acapulco</h3>
-                                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/Cancun.jpg" alt="Cancún" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Cancún</h3>
-                                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/LosCabos.jpg" alt="Los Cabos" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Los Cabos</h3>
-                                            <p>Beatiful flowers in Kolymbari, Crete.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/PuertoVallarta.jpg" alt="Puerrto Vallarta" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Puerto Vallarta</h3>
-                                            <p>Beatiful flowers in Kolymbari, Crete.</p>
-                                        </div>
-                                    </div>
+                                    <asp:PlaceHolder runat="server" ID="phCarrBodyNac"/>                                    
                                 </div>
 
                                 <!-- Left and right controls -->
@@ -88,45 +55,12 @@
                             <div id="carInternacionales" class="carousel slide" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
-                                    <li data-target="#carInternacionales" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carInternacionales" data-slide-to="1"></li>
-                                    <li data-target="#carInternacionales" data-slide-to="2"></li>
-                                    <li data-target="#carInternacionales" data-slide-to="3"></li>
+                                    <asp:PlaceHolder runat="server" ID="phCarrCabInter"/>                                    
                                 </ol>
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <img src="img/MachuPichuPeru.jpg" alt="Perú" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Machu Pichu, Perú</h3>
-                                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/MurallaChinaPekin.jpg" alt="Pekín" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Muralla China, Pelkín</h3>
-                                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/RioJaneiroBrasil.jpg" alt="Basil" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Río de Janeiro, Brasil</h3>
-                                            <p>Beatiful flowers in Kolymbari, Crete.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <img src="img/TajMahaIndia.jpg" alt="La Índia" style="margin: auto; text-align: center; height:300px" />
-                                        <div class="carousel-caption">
-                                            <h3>Taj Maha, Índia</h3>
-                                            <p>Beatiful flowers in Kolymbari, Crete.</p>
-                                        </div>
-                                    </div>
+                                    <asp:PlaceHolder runat="server" ID="phCarrBodyInter"/>
                                 </div>
 
                                 <!-- Left and right controls -->
