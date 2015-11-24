@@ -18,7 +18,7 @@ namespace Agencia.Viajes.Data
         }
         public DataTable Obtener() 
         {
-            SqlCommand com = new SqlCommand("spObtenerPeliculas", con);
+            SqlCommand com = new SqlCommand("spObtenerViajes", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.Add(new SqlParameter());
             SqlDataAdapter da = new SqlDataAdapter(com);
@@ -43,7 +43,7 @@ namespace Agencia.Viajes.Data
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@fechaLlegada", Value = fechaLlegada });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoria });
-            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destino });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DestinoId", Value = destino });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaAlta", Value = fechaAlta });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Bit, ParameterName = "@Estatus", Value = estatus });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Descripcion", Value = descripcion });
@@ -76,7 +76,7 @@ namespace Agencia.Viajes.Data
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre });
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@fechaLlegada", Value = fechaLlegada });
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoria });
-                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destino });
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DestinoId", Value = destino });
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaAlta", Value = fechaAlta });
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Bit, ParameterName = "@Estatus", Value = estatus });
                 com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Descripcion", Value = descripcion });
@@ -119,7 +119,10 @@ namespace Agencia.Viajes.Data
         {
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE, VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST FROM VIAJE INNER JOIN DESTINO On DEST_ID = VIAJ_DEST_ID INNER JOIN CATEGORIA On CATE_ID = VIAJ_CATE_ID WHERE VIAJ_DEST_ID = " + id, con);
+                SqlCommand com = new SqlCommand("spObtenerDestino", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = id });
+                SqlDataAdapter da = new SqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 return dt;
@@ -134,7 +137,10 @@ namespace Agencia.Viajes.Data
         {
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT VIAJ_ID, VIAJ_NOMB, VIAJ_FECH_LLEG, VIAJ_CATE_ID, VIAJ_DEST_ID, VIAJ_FECH_ALTA, VIAJ_ESTA, VIAJ_DESC, VIAJ_VIDE, VIAJ_FOTO_LUG, VIAJ_FOTO_HOTE, VIAJ_COST FROM VIAJE INNER JOIN DESTINO On DEST_ID = VIAJ_DEST_ID INNER JOIN CATEGORIA On CATE_ID = VIAJ_CATE_ID WHERE VIAJ_CATE_ID = " + id, con);
+                SqlCommand com = new SqlCommand("spObtenerCategoria", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = id });
+                SqlDataAdapter da = new SqlDataAdapter(com);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 return dt;
@@ -149,9 +155,9 @@ namespace Agencia.Viajes.Data
         {
             SqlCommand com = new SqlCommand("spObtenerViajeCompleto", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.Add(new SqlParameter() {SqlDbType = SqlDbType.NVarChar, ParameterName = "@nombre", Value = nombre});
+            com.Parameters.Add(new SqlParameter() {SqlDbType = SqlDbType.NVarChar, ParameterName = "@Nombre", Value = nombre});
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@Categoria", Value = categoriaid });
-            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DesyinoId", Value = destinoId });
+            com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.Int, ParameterName = "@DestinoId", Value = destinoId });
             com.Parameters.Add(new SqlParameter() { SqlDbType = SqlDbType.SmallDateTime, ParameterName = "@FechaLlegada", Value = fechaLlegada });
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
