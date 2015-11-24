@@ -14,8 +14,6 @@ namespace Agencia.Viajes.Business
         public BusViaje() { }
         public List<EntViaje> Obtener() 
        {
-           try
-           {
                DataTable dt = new DatViaje().Obtener();
                List<EntViaje> lst = new List<EntViaje>();
                foreach (DataRow dr in dt.Rows) 
@@ -32,18 +30,12 @@ namespace Agencia.Viajes.Business
                    ent.video  = dr["VIAJ_VIDE"].ToString();
                    ent.fotoLugar  = dr["VIAJ_FOTO_LUG"].ToString();
                    ent.fotoHotel  = dr["VIAJ_FOTO_HOTE"].ToString();
-                   ent.costo  = Convert.ToDouble(dr["VIAJ_DESC"]);
+                   ent.costo  = Convert.ToDouble(dr["VIAJ_DESC"]);                   
                    lst.Add(ent);                   
                }
                return lst;
  
            }
-           catch (Exception ex)
-           {
-               
-               throw new ApplicationException(ex.Message);
-           }
-       }
         public EntViaje Obtener(int id)
         {
             try
@@ -95,14 +87,13 @@ namespace Agencia.Viajes.Business
                 throw new ApplicationException(ex.Message);
             }
         }
-        public void Borrar(int id) 
+        public void Borrar(int id)
         {
             int filas = new DatViaje().Borrar(id);
             if (filas != 1)
                 throw new ApplicationException("Error al borrar viaje");
 
         }
+             
     }
-
-
 }
