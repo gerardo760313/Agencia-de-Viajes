@@ -77,26 +77,6 @@ public partial class GridViajes : System.Web.UI.Page
             Title = "Error: " + ex.Message;
         }
     }
-
-    protected void lnbAgregar_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            EntViaje entViaje = new EntViaje();
-            
-            entViaje.nombre = ((TextBox)gvViajes.FooterRow.FindControl("txtNombreFT")).Text;
-            entViaje.fechaLlegada = Convert.ToDateTime(((TextBox)gvViajes.FooterRow.FindControl("txtLlegadaEIT")).Text);
-            entViaje.categoriaId = Convert.ToInt32(((TextBox)gvViajes.FooterRow.FindControl("ddlCategoriaFT")).Text);
-
-            new BusViaje().Insertar(entViaje);
-            Response.Redirect("Default.aspx");
-        }
-        catch (Exception ex)
-        {
-            
-            Title = "Error: "+ex.Message;
-        }
-    }
     protected void gvViajes_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         try
@@ -111,6 +91,61 @@ public partial class GridViajes : System.Web.UI.Page
             Title = "Error: " + ex.Message;
         }
     }
+    protected void lnbAgregar_Click(object sender, EventArgs e)
+    {
+        string path = Server.MapPath("img\\");
+        path = path + DateTime.Now.ToString("HHmm");
+        try
+        {
+            EntViaje entViaje = new EntViaje();
+            
+            entViaje.fotoLugar = (((TextBox)gvViajes.FooterRow.FindControl("fuFotoLugarFT")).Text;
+            entViaje.fotoHotel = ((TextBox)gvViajes.FooterRow.FindControl("fuFotoHotelFT")).Text;
+
+            FileUpload fuFotoLugr = (FileUpload)gvViajes.FooterRow.FindControl("fuFotoLugarFT");
+            FileUpload fuFotoHolet = (FileUpload)gvViajes.FooterRow.FindControl("fuFotoHotelFT");
+
+            if (fuFotoLugr.HasFile){
+                string fileName = fuFotoLugr.FileName;
+                entViaje.fotoLugar = path+fileName;
+                fuFotoLugr.SaveAs(entViaje.fotoLugar);
+                entViaje.fotoLugar = "img/"+DateTime.Now.ToString("HHmm")+fileName;
+	        }
+            else{
+                string alerta = "Error: falta agregar una image del deltino turístco";
+                ScriptManager.RegisterStartupScript(this,GetType(),"",alerta,true);
+            }
+
+            if (fuFotoHolet.HasFile)
+            {
+                string fileName = fuFotoHolet.FileName;
+                entViaje.fotoHotel = path+fileName;
+                fuFotoHolet.SaveAs(entViaje.fotoHotel);
+                entViaje.fotoHotel ="img/"+DateTime.Now.ToString("HHmm")+fileName;
+            }else{
+                string alerta = "Errot: falta agregar la foto del hotel";
+                ScriptManager.RegisterStartupScript(this,GetType(),"",alerta,true);
+            }
+            entViaje.nombre = ((TextBox)gvViajes.FooterRow.FindControl("txtNombreFT")).Text;
+            entViaje.fechaLlegada = Convert.ToDateTime(((TextBox)gvViajes.FooterRow.FindControl("txtLlegadaEIT")).Text);
+            entViaje.categoriaId = Convert.ToInt32(((TextBox)gvViajes.FooterRow.FindControl("ddlCategoriaFT")).Text);
+            entViaje.destinoId = Convert.ToInt32(((TextBox)gvViajes.FooterRow.FindControl("ddlDestinoFT")).Text);
+            entViaje.descripcion = ((TextBox)gvViajes.FooterRow.FindControl("txtDescrFT")).Text;
+            entViaje.descripcion = ((TextBox)gvViajes.FooterRow.FindControl("txtVideoFT")).Text;
+            entViaje.estatus = ((CheckBox)gvViajes.FooterRow.FindControl("chbEstatusFT")).Checked;
+            entViaje.fechaAlta = Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy"));
+
+
+            new BusViaje().Insertar(entViaje);
+            Response.Redirect("Default.aspx");
+        }
+        catch (Exception ex)
+        {
+            
+            
+                Title = "Error: "+ex.Message;
+        }
+    }
     protected void gvViajes_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         String path = Server.MapPath("img\\");
@@ -119,7 +154,7 @@ public partial class GridViajes : System.Web.UI.Page
         try
         {
             EntViaje ent = new EntViaje();
-            
+
             ent.fotoLugar = gvViajes.DataKeys[e.RowIndex].Values["fotoLugar"].ToString();
             ent.fotoHotel = gvViajes.DataKeys[e.RowIndex].Values["fotoHotel"].ToString();
 
@@ -140,10 +175,10 @@ public partial class GridViajes : System.Web.UI.Page
                 ent.fotoHotel = "img" + DateTime.Now.ToString("HHmm") + fileName;
             }
 
-            ent.id = Convert.ToInt32( gvViajes.DataKeys[e.RowIndex].Values["Id"]);
+            ent.id = Convert.ToInt32(gvViajes.DataKeys[e.RowIndex].Values["Id"]);
             ent.nombre = ((TextBox)gvViajes.Rows[e.RowIndex].FindControl("txtNombreEIT")).Text;
             ent.fechaLlegada = Convert.ToDateTime(((TextBox)gvViajes.Rows[e.RowIndex].FindControl("txtLlegadaEIT")).Text);
-            ent.categoriaId = Convert.ToInt32 (((DropDownList)gvViajes.Rows[e.RowIndex].FindControl("ddlCategoriaEIT")).SelectedItem.Value);
+            ent.categoriaId = Convert.ToInt32(((DropDownList)gvViajes.Rows[e.RowIndex].FindControl("ddlCategoriaEIT")).SelectedItem.Value);
             ent.destinoId = Convert.ToInt32(((DropDownList)gvViajes.Rows[e.RowIndex].FindControl("ddlDestinoEIT")).SelectedItem.Value);
             ent.descripcion = ((TextBox)gvViajes.Rows[e.RowIndex].FindControl("txtDescrEIT")).Text;
             ent.video = ((TextBox)gvViajes.Rows[e.RowIndex].FindControl("txtVideoEIT")).Text;

@@ -174,14 +174,15 @@
                         </div>
                     </div>
                     &nbsp;
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div class="row" style="margin-top:20px">
+                        <asp:PlaceHolder runat="server"  ID="phdestinos"/>
+                        <!--<div class="col-sm-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="height: 150px">
-                                    <img src="img/Acapulco.jpg" alt="Destino turistico" id="imgLugar" class="img-responsive" style="margin: auto; height: 120px" />
+                                    <img src="img/Acapulco.jpg" alt="Destino turistico" id="imgLugar" class="img-responsive" style="margin: auto; height: 120px " />
                                 </div>
 
-                                <div class=" panel-body" style="height: 400px;">
+                                <div class=" panel-body" style="height: 95%;">
                                     <div class="row">
                                         <div class="col-xs-4" style="height: 100px">
                                             <img src="img/CopacabanaAcapulco.jpg" alt="Hotel" id="imgHotel" class="img-responsive" style="margin: auto; height: 100px" />
@@ -206,9 +207,8 @@
                                     </div>
 
 
-                                    <div id="video" style="text-align: center; margin: 5px auto;">
-                                        <iframe src="video/DestinosGuerrero.mp4" frameborder="0" allowfullscreen controls></iframe>
-
+                                    <div id="video" style="text-align: center; margin: 0px auto;">
+                                        <iframe src="video/DestinosGuerrero.mp4" frameborder="0" allowfullscreen controls style="width:95%"></iframe>
                                     </div>
                                 </div>
 
@@ -217,7 +217,15 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> -->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     </div>
                 </div>
 
