@@ -28,7 +28,7 @@ public partial class GridViajes : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest = new BusDestino().obtDestino();
+            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
             DropDownList ddlDest = (DropDownList)gvViajes.FooterRow.FindControl("ddlDestinoFT");
 
             ddlDest.DataSource = listDest;
@@ -48,7 +48,7 @@ public partial class GridViajes : System.Web.UI.Page
     {
         try
         {
-            List<EntCategoria> listCat = new BusCategoria().obtCat();
+            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
             DropDownList ddlCat = new DropDownList();
 
             ddlCat.DataSource = listCat;
@@ -99,7 +99,7 @@ public partial class GridViajes : System.Web.UI.Page
         {
             EntViaje entViaje = new EntViaje();
             
-            entViaje.fotoLugar = (((TextBox)gvViajes.FooterRow.FindControl("fuFotoLugarFT")).Text;
+            entViaje.fotoLugar = ((TextBox)gvViajes.FooterRow.FindControl("fuFotoLugarFT")).Text;
             entViaje.fotoHotel = ((TextBox)gvViajes.FooterRow.FindControl("fuFotoHotelFT")).Text;
 
             FileUpload fuFotoLugr = (FileUpload)gvViajes.FooterRow.FindControl("fuFotoLugarFT");
@@ -203,7 +203,7 @@ public partial class GridViajes : System.Web.UI.Page
             LlenarCategoriaFT();
             LlenarDestinoFT();
 
-            List<EntDestino> listDest = new BusDestino().obtDestino();
+            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
             DropDownList ddlDest = (DropDownList)gvViajes.Rows[e.NewEditIndex].FindControl("ddlDestinoEIT");
             ddlDest.DataSource = listDest;
             ddlDest.DataTextField = "nombre";
@@ -212,7 +212,7 @@ public partial class GridViajes : System.Web.UI.Page
             ddlDest.SelectedValue = gvViajes.DataKeys[e.NewEditIndex].Values["destinoId"].ToString();
 
 
-            List<EntCategoria> listCat = new BusCat().obtCat();
+            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
             DropDownList ddlCat = (DropDownList)gvViajes.Rows[e.NewEditIndex].FindControl("ddlCategoriaEIT");
             ddlCat.DataSource = listCat;
             ddlCat.DataTextField = "nombre";

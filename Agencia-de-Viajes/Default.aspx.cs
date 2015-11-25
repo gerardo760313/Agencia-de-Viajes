@@ -13,6 +13,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
+            
             if (!IsPostBack)
             {
                 List<EntViaje> list = new BusViaje().Obtener();
@@ -138,8 +139,7 @@ public partial class _Default : System.Web.UI.Page
             Title = ex.Message;
         }
     }
-
-
+    
     private void cargarDestinos(List<EntViaje> list)
     {
         try
@@ -207,7 +207,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest = BusDestino().Obtener();
+            List<EntDestino> listDest =new BusCatalogo().ObtDestino();
             ddlDestino.DataSource = listDest;
             ddlDestino.DataTextField = "nombre";
             ddlDestino.DataValueField = "id";
@@ -225,7 +225,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntCategoria> listCat = BusCategoria().Obtener();
+            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
             ddlCategoria.DataSource = listCat;
             ddlCategoria.DataTextField = "nombre";
             ddlCategoria.DataValueField = "id";

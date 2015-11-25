@@ -12,7 +12,7 @@ namespace Agencia.Viajes.Data
         public SqlConnection con;
         public DatUsuario() 
         {
-            con = new SqlConnection("Data Source= CHINO\\MSSQLSERVER2012; Initial Catalog = Agencia-de-Viajes; User Id = sa; password=12345");
+            con = new SqlConnection("Data Source= JMRV\\MSSQLSERVER2012; Initial Catalog = AgenciaViajes; User Id = sa; password=12345");
         }
         
 
