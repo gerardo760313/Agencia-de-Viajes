@@ -20,7 +20,7 @@ namespace Agencia.Viajes.Business
                {
                    EntViaje ent = new EntViaje();
                    ent.id = Convert.ToInt32(dr["VIAJ_Id"]);
-                   ent.nombre = dr.["VIAJ_NOMB"].ToString();
+                   ent.nombre = dr["VIAJ_NOMB"].ToString();
                    ent.fechaLlegada = Convert.ToDateTime(dr["VIAJ_FECH_LLEG"]);
                    ent.categoriaId = Convert.ToInt32(dr["VIAJ_CATE_ID"]);
                    ent.destinoId = Convert.ToInt32(dr["VIAJ_DEST_ID"]);
@@ -94,6 +94,6 @@ namespace Agencia.Viajes.Business
                 throw new ApplicationException("Error al borrar viaje");
 
         }
-             
+
     }
 }
