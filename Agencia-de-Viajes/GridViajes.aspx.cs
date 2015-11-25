@@ -13,9 +13,12 @@ public partial class GridViajes : System.Web.UI.Page
     {
         try
         {
-            CargarDestinos();
-            LlenarCategoriaFT();
-            LlenarDestinoFT();
+            if (!IsPostBack)
+            {
+                CargarDestinos();
+                LlenarCategoriaFT();
+                LlenarDestinoFT(); 
+            }
         }
         catch (Exception ex)
         {
@@ -49,7 +52,7 @@ public partial class GridViajes : System.Web.UI.Page
         try
         {
             List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
-            DropDownList ddlCat = new DropDownList();
+            DropDownList ddlCat = (DropDownList)gvViajes.FooterRow.FindControl("ddlCategoriaFT");
 
             ddlCat.DataSource = listCat;
             ddlCat.DataTextField = "nombre";
@@ -128,8 +131,8 @@ public partial class GridViajes : System.Web.UI.Page
             }
             entViaje.nombre = ((TextBox)gvViajes.FooterRow.FindControl("txtNombreFT")).Text;
             entViaje.fechaLlegada = Convert.ToDateTime(((TextBox)gvViajes.FooterRow.FindControl("txtLlegadaEIT")).Text);
-            entViaje.categoriaId = Convert.ToInt32(((TextBox)gvViajes.FooterRow.FindControl("ddlCategoriaFT")).Text);
-            entViaje.destinoId = Convert.ToInt32(((TextBox)gvViajes.FooterRow.FindControl("ddlDestinoFT")).Text);
+            entViaje.categoriaId = Convert.ToInt32(((DropDownList)gvViajes.FooterRow.FindControl("ddlCategoriaFT")).SelectedValue);
+            entViaje.destinoId = Convert.ToInt32(((DropDownList)gvViajes.FooterRow.FindControl("ddlDestinoFT")).SelectedValue);
             entViaje.descripcion = ((TextBox)gvViajes.FooterRow.FindControl("txtDescrFT")).Text;
             entViaje.descripcion = ((TextBox)gvViajes.FooterRow.FindControl("txtVideoFT")).Text;
             entViaje.estatus = ((CheckBox)gvViajes.FooterRow.FindControl("chbEstatusFT")).Checked;

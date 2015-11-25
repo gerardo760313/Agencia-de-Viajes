@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:GridView runat="server" ID="gvViajes" AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="Id,categoriaId,estatusId,fotoLugar,fotoHotel" OnRowCancelingEdit="gvViajes_RowCancelingEdit" OnRowDeleting="gvViajes_RowDeleting" OnRowEditing="gvViajes_RowEditing" OnRowUpdating="gvViajes_RowUpdating">
+        <asp:GridView runat="server" ID="gvViajes" AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="Id,categoriaId,destinoId,fotoLugar,fotoHotel" OnRowCancelingEdit="gvViajes_RowCancelingEdit" OnRowDeleting="gvViajes_RowDeleting" OnRowEditing="gvViajes_RowEditing" OnRowUpdating="gvViajes_RowUpdating">
             <Columns>
                 <asp:TemplateField HeaderText="[Nombre]">
                     <EditItemTemplate>
@@ -24,7 +24,7 @@
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Fecha Llegada">
+                <asp:TemplateField HeaderText="[Fecha Llegada]">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtLlegadaEIT" runat="server" Text='<%# Bind("fechaLlegada") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -43,7 +43,7 @@
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Categoria") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("categoriaId") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:DropDownList runat="server" ID="ddlCategoriaFT" AppendDataBoundItems="true">
@@ -59,7 +59,7 @@
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Destino") %>'></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("destinoId") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:DropDownList runat="server" ID="ddlDestinoFT" AppendDataBoundItems="true">
@@ -73,7 +73,7 @@
                         <asp:FileUpload runat="server" ID="fuFotoLugarEIT" ToolTip="Foto del lugar a visitar" />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Image ImageUrl='<%# Bind("fotoLugar") %>' runat="server" ID="imgFotoMini" Width="70px" />
+                        <asp:Image ImageUrl='<%# Bind("fotoLugar") %>' runat="server" ID="imgFotoLugar" Width="70px" />
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:FileUpload ID="fuFotoLugarFT" runat="server" ToolTip="Foto del lugar a visitar" />
@@ -85,7 +85,7 @@
                         <asp:FileUpload runat="server" ID="fuFotoHotelEIT" ToolTip="Foto del Hotel" />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Image ImageUrl='<%# Bind("fotoHotel") %>' runat="server" ID="imgFotoMini" Width="70px" />
+                        <asp:Image ImageUrl='<%# Bind("fotoHotel") %>' runat="server" ID="imgFotoHotel" Width="70px" />
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:FileUpload runat="server" ID="fuFotoHotelFT" ToolTip="Foto del hotel" />
@@ -116,15 +116,24 @@
                     </FooterTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="[Costo]">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("costo") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("costo") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="[Estatus]">
                     <EditItemTemplate>
                         <asp:CheckBox ID="ckbEstatusEIT" runat="server" Checked='<%# Bind("estatus") %>' />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="ckbEstatus" runat="server" Checked='<%# Bind("estatus") %>' />
+                        <asp:CheckBox ID="ckbEstatus" runat="server" Checked='<%# Bind("estatus") %>' Enabled="false" />
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:CheckBox ID="chbEstatusFT" runat="server" Checked="true" />
+                        <asp:CheckBox ID="chbEstatusFT" runat="server" Checked="true" Enabled="false" />
                     </FooterTemplate>
                 </asp:TemplateField>
 

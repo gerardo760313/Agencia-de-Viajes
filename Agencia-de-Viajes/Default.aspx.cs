@@ -13,16 +13,17 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            
+
             if (!IsPostBack)
             {
                 List<EntViaje> list = new BusViaje().Obtener();
-                cargarDestinos(list);
+
                 cargarNacionales(list);
                 cargarInternacionales(list);
-
                 LlenarCategoria();
                 LlenarDestino();
+                cargarDestinos(list);
+
             }
         }
         catch (Exception ex)
@@ -75,7 +76,7 @@ public partial class _Default : System.Web.UI.Page
                     litBody.Text += "     </div>";
                     litBody.Text += "</div>";
                 }
-                cont = 0;
+                cont++;
             }
             phCarrCabNac.Controls.Add(litCab);
             phCarrBodyNac.Controls.Add(litBody);
@@ -128,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
                     litBody.Text += "     </div>";
                     litBody.Text += "</div>";
                 }
-                cont = 0;
+                cont++;
             }
             phCarrCabInter.Controls.Add(litCab);
             phCarrBodyInter.Controls.Add(litBody);
@@ -139,7 +140,7 @@ public partial class _Default : System.Web.UI.Page
             Title = ex.Message;
         }
     }
-    
+
     private void cargarDestinos(List<EntViaje> list)
     {
         try
@@ -164,21 +165,23 @@ public partial class _Default : System.Web.UI.Page
                 literal.Text += "                                            <span>Fecha: </span>";
                 literal.Text += "                                            <label>" + ent.fechaLlegada + "</label>";
                 literal.Text += "                                            <span>Categoria: </span>";
-                literal.Text += "                                            <label>" + ent.Categoria + "</label>";
+                literal.Text += "                                            <label>" + ent.categoriaId + "</label>";
                 literal.Text += "                                            <span>Destino: </span>";
-                literal.Text += "                                            <label>" + ent.Destino + "</label>";
+                literal.Text += "                                            <label>" + ent.destinoId + "</label>";
                 literal.Text += "                                            <br />";
+                
                 if (ent.estatus)
                     literal.Text += "<input type=\"checkbox\" disabled checked/>";
                 else
                     literal.Text += "<input type=\"checkbox\" disabled>";
+                
                 literal.Text += "                                        </div>";
 
                 literal.Text += "                                    </div>";
 
                 literal.Text += "                                    <div id=\"descripcion\" style=\"text-align: center; margin: 5px auto;\">";
-                literal.Text += "                                        <textarea id=\"txtDescr\" class=\"form-control\" cols=\"43\" rows=\"4\" style=\"text-align: justify; background-color: White;\" disabled=\"disabled\">";
-                literal.Text = ent.descripcion;
+                literal.Text += "    <textarea id=\"txtDescr\" class=\"form-control\" cols=\"43\" rows=\"4\" style=\"text-align: justify; background-color: White;\" disabled=\"disabled\">";
+                literal.Text += ent.descripcion;
                 literal.Text += "                                </textarea>";
                 literal.Text += "                                    </div>";
 
@@ -194,6 +197,7 @@ public partial class _Default : System.Web.UI.Page
                 literal.Text += "                            </div>";
                 literal.Text += "                        </div>";
             }
+
             phdestinos.Controls.Add(literal);
         }
         catch (Exception ex)
@@ -207,7 +211,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest =new BusCatalogo().ObtDestino();
+            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
             ddlDestino.DataSource = listDest;
             ddlDestino.DataTextField = "nombre";
             ddlDestino.DataValueField = "id";

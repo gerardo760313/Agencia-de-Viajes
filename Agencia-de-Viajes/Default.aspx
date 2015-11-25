@@ -30,12 +30,12 @@
                             <div id="carNacinales" class="carousel slide" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
-                                    <asp:PlaceHolder runat="server" ID="phCarrCabNac" />                                      
+                                    <asp:PlaceHolder runat="server" ID="phCarrCabNac" />
                                 </ol>
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox">
-                                    <asp:PlaceHolder runat="server" ID="phCarrBodyNac"/>                                    
+                                    <asp:PlaceHolder runat="server" ID="phCarrBodyNac" />
                                 </div>
 
                                 <!-- Left and right controls -->
@@ -55,12 +55,12 @@
                             <div id="carInternacionales" class="carousel slide" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
-                                    <asp:PlaceHolder runat="server" ID="phCarrCabInter"/>                                    
+                                    <asp:PlaceHolder runat="server" ID="phCarrCabInter" />
                                 </ol>
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox">
-                                    <asp:PlaceHolder runat="server" ID="phCarrBodyInter"/>
+                                    <asp:PlaceHolder runat="server" ID="phCarrBodyInter" />
                                 </div>
 
                                 <!-- Left and right controls -->
@@ -78,7 +78,7 @@
                     &nbsp;
                     <div class="well">
                         <div>
-                            <div class="row; text-center">
+                            <div class="row text-center">
                                 <div class="col-sm-4">
                                     <asp:TextBox runat="server" ID="txtFecha" ToolTip="Buscar por fecha" placeholder="Fecha" />
                                 </div>
@@ -108,58 +108,8 @@
                         </div>
                     </div>
                     &nbsp;
-                    <div class="row" style="margin-top:20px">
-                        <asp:PlaceHolder runat="server"  ID="phdestinos"/>
-                        <!--<div class="col-sm-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" style="height: 150px">
-                                    <img src="img/Acapulco.jpg" alt="Destino turistico" id="imgLugar" class="img-responsive" style="margin: auto; height: 120px " />
-                                </div>
-
-                                <div class=" panel-body" style="height: 95%;">
-                                    <div class="row">
-                                        <div class="col-xs-4" style="height: 100px">
-                                            <img src="img/CopacabanaAcapulco.jpg" alt="Hotel" id="imgHotel" class="img-responsive" style="margin: auto; height: 100px" />
-                                        </div>
-
-                                        <div class="col-xs-8">
-                                            <span>Fecha: </span>
-                                            <label>19/11/2015</label>
-                                            <span>Categoria: </span>
-                                            <label>5 estrellas</label>
-                                            <span>Destino: </span>
-                                            <label>Acapulco</label>
-                                            <br />
-                                            <input type="checkbox" id="chkEstatus" checked="checked" disabled="disabled" />
-                                        </div>
-
-                                    </div>
-
-                                    <div id="descripcion" style="text-align: center; margin: 5px auto;">
-                                        <textarea id="txtDescr" class="form-control" cols="43" rows="4" style="text-align: justify; background-color: White;" disabled="disabled">Este centro turitico cuenta con ....
-                                </textarea>
-                                    </div>
-
-
-                                    <div id="video" style="text-align: center; margin: 0px auto;">
-                                        <iframe src="video/DestinosGuerrero.mp4" frameborder="0" allowfullscreen controls style="width:95%"></iframe>
-                                    </div>
-                                </div>
-
-                                <div class="panel-footer" style="height: 50px; text-align: center;">
-                                    <asp:LinkButton Text="Reservar" runat="server" ID="lkbReservar" />
-                                </div>
-
-                            </div>
-                        </div> -->
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    <div class="row text-center" style="margin-top: 20px">
+                        <asp:PlaceHolder runat="server" ID="phdestinos" />
                     </div>
                 </div>
 

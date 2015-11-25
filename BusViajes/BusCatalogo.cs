@@ -21,7 +21,7 @@ namespace Agencia.Viajes.Business
                 {
                     EntCategoria ent = new EntCategoria();
                     ent.id = Convert.ToInt32(dr["CATE_ID"]);
-                    ent.nombre = dr["CATE:NOMB"].ToString();
+                    ent.nombre = dr["CATE_NOMB"].ToString();
                     list.Add(ent);
                 }
                 return list;

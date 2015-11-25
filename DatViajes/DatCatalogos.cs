@@ -15,21 +15,19 @@ namespace Agencia.Viajes.Data
         {
             con = new SqlConnection("Data Source= JMRV\\MSSQLSERVER2012; Initial Catalog = AgenciaViajes; User Id = sa; password=12345");
         }
-        public DataTable ObtenerDestino() 
-         {
-             SqlCommand com = new SqlCommand("spObtenerDestino", con);
-             com.CommandType = CommandType.StoredProcedure;
-             com.Parameters.Add(new SqlParameter());
-             SqlDataAdapter da = new SqlDataAdapter(com);
-             DataTable dt = new DataTable();
-             da.Fill(dt);
-             return dt;
-         }
+        public DataTable ObtenerDestino()
+        {
+            SqlCommand com = new SqlCommand("spObtenerDestino", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
         public DataTable ObtenerCategoria()
         {
             SqlCommand com = new SqlCommand("spObtenerCategoria", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.Add(new SqlParameter());
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);

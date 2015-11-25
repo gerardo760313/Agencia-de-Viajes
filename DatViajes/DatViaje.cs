@@ -20,7 +20,6 @@ namespace Agencia.Viajes.Data
         {
             SqlCommand com = new SqlCommand("spObtenerViajes", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.Add(new SqlParameter());
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
