@@ -13,14 +13,13 @@ namespace Agencia.Viajes.Data
         public SqlConnection con;
         public DatViaje() 
         {
-            con = new SqlConnection("Data Source= CHINO\\MSSQLSERVER2012; Initial Catalog = Agencia-de-Viajes; User Id = sa; password=12345");
+            con = new SqlConnection("Data Source= CHINO\\MSSQLSERVER2012; Initial Catalog = AgenciaViajes; User Id = sa; password=12345");
             DataTable dt = new DataTable();
         }
         public DataTable Obtener() 
         {
             SqlCommand com = new SqlCommand("spObtenerViajes", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.Add(new SqlParameter());
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);

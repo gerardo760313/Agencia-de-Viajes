@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="EntCategoria.cs" />
     <Compile Include="EntDestino.cs" />
+    <Compile Include="EntUsuario.cs" />
     <Compile Include="EntViaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

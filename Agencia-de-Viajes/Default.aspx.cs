@@ -207,7 +207,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest = BusDestino().Obtener();
+            List<EntDestino> listDest = new BusCatalogo().ObtenerDestino();
             ddlDestino.DataSource = listDest;
             ddlDestino.DataTextField = "nombre";
             ddlDestino.DataValueField = "id";
@@ -225,7 +225,7 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntCategoria> listCat = BusCategoria().Obtener();
+            List<EntCategoria> listCat = new BusCatalogo().ObtenerCategoria();
             ddlCategoria.DataSource = listCat;
             ddlCategoria.DataTextField = "nombre";
             ddlCategoria.DataValueField = "id";

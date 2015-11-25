@@ -30,7 +30,7 @@ namespace Agencia.Viajes.Business
                    ent.video  = dr["VIAJ_VIDE"].ToString();
                    ent.fotoLugar  = dr["VIAJ_FOTO_LUG"].ToString();
                    ent.fotoHotel  = dr["VIAJ_FOTO_HOTE"].ToString();
-                   ent.costo  = Convert.ToDouble(dr["VIAJ_DESC"]);                   
+                   ent.costo  = Convert.ToDouble(dr["VIAJ_COST"]);                   
                    lst.Add(ent);                   
                }
                return lst;
@@ -63,6 +63,24 @@ namespace Agencia.Viajes.Business
             }
 
 
+        }
+        public EntUsuario ObtenerUsuario(string mail, string pass) 
+        {
+            try
+            {
+                DataTable dt = new DatUsuario().ObtenerUsuario(mail, pass);
+                EntUsuario ent = new EntUsuario();
+                ent.id = Convert.ToInt32(dt.Rows[0]["USUA_ID"]);
+                ent.nombre = (dt.Rows[0]["USUA_NOMB"].ToString());
+                ent.mail = (dt.Rows[0]["USUA_MAIL"].ToString());
+                ent.pass = (dt.Rows[0]["USUA_PASS"].ToString());
+                return ent;
+            }
+            catch (Exception ex)
+            {
+                
+                throw new ApplicationException(ex.Message);
+            }
         }
         public void Insertar(EntViaje ent)
         {
