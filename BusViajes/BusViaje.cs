@@ -14,8 +14,6 @@ namespace Agencia.Viajes.Business
         public BusViaje() { }
         public List<EntViaje> Obtener() 
        {
-           try
-           {
                DataTable dt = new DatViaje().Obtener();
                List<EntViaje> lst = new List<EntViaje>();
                foreach (DataRow dr in dt.Rows) 
@@ -33,17 +31,12 @@ namespace Agencia.Viajes.Business
                    ent.fotoLugar  = dr["VIAJ_FOTO_LUG"].ToString();
                    ent.fotoHotel  = dr["VIAJ_FOTO_HOTE"].ToString();
                    ent.costo  = Convert.ToDouble(dr["VIAJ_COST"]);
+
                    lst.Add(ent);                   
                }
                return lst;
  
            }
-           catch (Exception ex)
-           {
-               
-               throw new ApplicationException(ex.Message);
-           }
-       }
         public EntViaje Obtener(int id)
         {
             try
@@ -72,6 +65,24 @@ namespace Agencia.Viajes.Business
 
 
         }
+        public EntUsuario ObtenerUsuario(string mail, string pass) 
+        {
+            try
+            {
+                DataTable dt = new DatUsuario().ObtenerUsuario(mail, pass);
+                EntUsuario ent = new EntUsuario();
+                ent.id = Convert.ToInt32(dt.Rows[0]["USUA_ID"]);
+                ent.nombre = (dt.Rows[0]["USUA_NOMB"].ToString());
+                ent.mail = (dt.Rows[0]["USUA_MAIL"].ToString());
+                ent.pass = (dt.Rows[0]["USUA_PASS"].ToString());
+                return ent;
+            }
+            catch (Exception ex)
+            {
+                
+                throw new ApplicationException(ex.Message);
+            }
+        }
         public void Insertar(EntViaje ent)
         {
             int filas = new DatViaje().spInsertar(ent.nombre, ent.fechaLlegada.ToString("MM/dd/yyyy"), ent.categoriaId, ent.destinoId, ent.fechaAlta.ToString("MM/dd/yyyy"), ent.estatus, ent.descripcion, ent.video, ent.fotoLugar, ent.fotoHotel, ent.costo);
@@ -95,14 +106,13 @@ namespace Agencia.Viajes.Business
                 throw new ApplicationException(ex.Message);
             }
         }
-        public void Borrar(int id) 
+        public void Borrar(int id)
         {
             int filas = new DatViaje().Borrar(id);
             if (filas != 1)
                 throw new ApplicationException("Error al borrar viaje");
 
         }
+
     }
-
-
 }

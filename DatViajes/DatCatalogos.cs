@@ -24,6 +24,7 @@ namespace Agencia.Viajes.Data
             da.Fill(dt);
             return dt;
         }
+        
         public DataTable ObtenerCategoria()
         {
             SqlCommand com = new SqlCommand("spObtenerCategoria", con);

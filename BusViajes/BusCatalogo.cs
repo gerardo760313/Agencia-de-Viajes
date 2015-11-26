@@ -11,7 +11,8 @@ namespace Agencia.Viajes.Business
 {
     public class BusCatalogo
     {
-        public List<EntCategoria> ObtCategoria()
+
+        public List<EntCategoria> ObtenerCategoria()
         {
             try
             {
@@ -34,7 +35,7 @@ namespace Agencia.Viajes.Business
 
 
         }
-        public List<EntDestino> ObtDestino()
+        public List<EntDestino> ObtenerDestino()
         {
             try
             {

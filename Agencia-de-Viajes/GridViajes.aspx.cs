@@ -17,7 +17,7 @@ public partial class GridViajes : System.Web.UI.Page
             {
                 CargarDestinos();
                 LlenarCategoriaFT();
-                LlenarDestinoFT(); 
+                LlenarDestinoFT();
             }
         }
         catch (Exception ex)
@@ -31,7 +31,9 @@ public partial class GridViajes : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
+
+            List<EntDestino> listDest = new BusCatalogo().ObtenerDestino();
+
             DropDownList ddlDest = (DropDownList)gvViajes.FooterRow.FindControl("ddlDestinoFT");
 
             ddlDest.DataSource = listDest;
@@ -51,12 +53,13 @@ public partial class GridViajes : System.Web.UI.Page
     {
         try
         {
-            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
+
+            List<EntCategoria> listCat = new BusCatalogo().ObtenerCategoria();
             DropDownList ddlCat = (DropDownList)gvViajes.FooterRow.FindControl("ddlCategoriaFT");
 
             ddlCat.DataSource = listCat;
             ddlCat.DataTextField = "nombre";
-            ddlCat.DataValueField = "id";
+           ddlCat.DataValueField = "id";
             ddlCat.DataBind();
 
         }
@@ -101,33 +104,37 @@ public partial class GridViajes : System.Web.UI.Page
         try
         {
             EntViaje entViaje = new EntViaje();
-            
+
             entViaje.fotoLugar = ((TextBox)gvViajes.FooterRow.FindControl("fuFotoLugarFT")).Text;
             entViaje.fotoHotel = ((TextBox)gvViajes.FooterRow.FindControl("fuFotoHotelFT")).Text;
 
             FileUpload fuFotoLugr = (FileUpload)gvViajes.FooterRow.FindControl("fuFotoLugarFT");
             FileUpload fuFotoHolet = (FileUpload)gvViajes.FooterRow.FindControl("fuFotoHotelFT");
 
-            if (fuFotoLugr.HasFile){
+            if (fuFotoLugr.HasFile)
+            {
                 string fileName = fuFotoLugr.FileName;
-                entViaje.fotoLugar = path+fileName;
+                entViaje.fotoLugar = path + fileName;
                 fuFotoLugr.SaveAs(entViaje.fotoLugar);
-                entViaje.fotoLugar = "img/"+DateTime.Now.ToString("HHmm")+fileName;
-	        }
-            else{
+                entViaje.fotoLugar = "img/" + DateTime.Now.ToString("HHmm") + fileName;
+            }
+            else
+            {
                 string alerta = "Error: falta agregar una image del deltino turístco";
-                ScriptManager.RegisterStartupScript(this,GetType(),"",alerta,true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "", alerta, true);
             }
 
             if (fuFotoHolet.HasFile)
             {
                 string fileName = fuFotoHolet.FileName;
-                entViaje.fotoHotel = path+fileName;
+                entViaje.fotoHotel = path + fileName;
                 fuFotoHolet.SaveAs(entViaje.fotoHotel);
-                entViaje.fotoHotel ="img/"+DateTime.Now.ToString("HHmm")+fileName;
-            }else{
+                entViaje.fotoHotel = "img/" + DateTime.Now.ToString("HHmm") + fileName;
+            }
+            else
+            {
                 string alerta = "Errot: falta agregar la foto del hotel";
-                ScriptManager.RegisterStartupScript(this,GetType(),"",alerta,true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "", alerta, true);
             }
             entViaje.nombre = ((TextBox)gvViajes.FooterRow.FindControl("txtNombreFT")).Text;
             entViaje.fechaLlegada = Convert.ToDateTime(((TextBox)gvViajes.FooterRow.FindControl("txtLlegadaEIT")).Text);
@@ -144,9 +151,9 @@ public partial class GridViajes : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            
-            
-                Title = "Error: "+ex.Message;
+
+
+            Title = "Error: " + ex.Message;
         }
     }
     protected void gvViajes_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -206,7 +213,9 @@ public partial class GridViajes : System.Web.UI.Page
             LlenarCategoriaFT();
             LlenarDestinoFT();
 
-            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
+
+            List<EntDestino> listDest = new BusCatalogo().ObtenerDestino();
+
             DropDownList ddlDest = (DropDownList)gvViajes.Rows[e.NewEditIndex].FindControl("ddlDestinoEIT");
             ddlDest.DataSource = listDest;
             ddlDest.DataTextField = "nombre";
@@ -215,7 +224,9 @@ public partial class GridViajes : System.Web.UI.Page
             ddlDest.SelectedValue = gvViajes.DataKeys[e.NewEditIndex].Values["destinoId"].ToString();
 
 
-            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
+
+            List<EntCategoria> listCat = new BusCatalogo().ObtenerCategoria();
+
             DropDownList ddlCat = (DropDownList)gvViajes.Rows[e.NewEditIndex].FindControl("ddlCategoriaEIT");
             ddlCat.DataSource = listCat;
             ddlCat.DataTextField = "nombre";

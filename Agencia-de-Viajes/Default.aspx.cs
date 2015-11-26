@@ -163,7 +163,7 @@ public partial class _Default : System.Web.UI.Page
 
                 literal.Text += "                                        <div class=\"col-xs-8\">";
                 literal.Text += "                                            <span>Fecha: </span>";
-                literal.Text += "                                            <label>" + ent.fechaLlegada + "</label>";
+                literal.Text += "                                            <label>" + ent.fechaLlegada.ToString("MM/yyyy") + "</label>";
                 literal.Text += "                                            <span>Categoria: </span>";
                 literal.Text += "                                            <label>" + ent.categoriaId + "</label>";
                 literal.Text += "                                            <span>Destino: </span>";
@@ -211,7 +211,9 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntDestino> listDest = new BusCatalogo().ObtDestino();
+
+            List<EntDestino> listDest = new BusCatalogo().ObtenerDestino();
+
             ddlDestino.DataSource = listDest;
             ddlDestino.DataTextField = "nombre";
             ddlDestino.DataValueField = "id";
@@ -229,7 +231,9 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            List<EntCategoria> listCat = new BusCatalogo().ObtCategoria();
+
+            List<EntCategoria> listCat = new BusCatalogo().ObtenerCategoria();
+
             ddlCategoria.DataSource = listCat;
             ddlCategoria.DataTextField = "nombre";
             ddlCategoria.DataValueField = "id";
